@@ -1,19 +1,16 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import ShopSection from './components/ShopSection';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart, removeFromCart } from './components/redux/store';
 
 export default function Shop() {
-    const testArray = [
-        {name: 'Book', price: 9.99},
-        {name: 'Bookmark', price: 2.99},
-        {name: 'Magazine', price: 3.99}
-    ]
+    const { itemArray } = useSelector(state => state.store);
 
-    
     return (
         <div>
             <Navbar />
-            <ShopSection title={'Bookstore'} items={testArray}/>
+            <ShopSection title={'Bookstore'} items={itemArray}/>
         </div>
     )
 }
