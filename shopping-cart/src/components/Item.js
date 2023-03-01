@@ -10,7 +10,7 @@ export default function Item(props) {
         name: props.name,
         price: props.price,
         id: props.id,
-        amount: quantity,
+        amount: Number(quantity),
     }
 
     const handleChange = (event) => {

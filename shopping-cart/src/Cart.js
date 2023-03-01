@@ -4,12 +4,11 @@ import { addToCart, removeFromCart } from './components/redux/store';
 
 export default function Cart(props) {
     const dispatch = useDispatch();
-
     const { cart } = useSelector(state => state.store);
-    // TODO: FIX TOTAL SO ONLY 2 DECIMAL POINTS ARE DISPLAYED
     const { total } = useSelector(state => state.store);
+
     const cartDisplay = cart.map((item) => {
-        return <li className='mb-2'>{item.name} Price: {item.price} Qty: {item.amount} <button type='button' onClick={() => dispatch(removeFromCart(item))} className='btn btn-sm btn-outline-danger'>Remove from Cart</button></li>
+        return <li className='mb-2'>{item.name} Price: {item.price} <button type='button' className='btn btn-outline-secondary btn-sm'>-</button> Qty: {item.amount} <button type='button' className='btn btn-sm btn-outline-secondary'>+</button> <button type='button' onClick={() => dispatch(removeFromCart(item))} className='btn btn-sm btn-outline-danger'>Remove from Cart</button></li>
     })
 
     return (
@@ -25,7 +24,7 @@ export default function Cart(props) {
                                         </div>
                                         <div className='modal-body'>
                                             {cartDisplay}
-                                            Total: {total}
+                                            Total: {Number.parseFloat(total).toFixed(2)}
                                         </div>
                                         <div className='modal-footer'>
                                             <button type='button' className='btn btn-info' data-bs-dismiss="modal">Close Cart</button>                                        
