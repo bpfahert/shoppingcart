@@ -1,7 +1,7 @@
 import React from 'react';
+import Cart from '../Cart';
 
 export default function Navbar(props) {
-
 
     return (
         <div>
@@ -32,25 +32,7 @@ export default function Navbar(props) {
                 </div>
                 <button type='button' className='btn' data-bs-toggle='modal' data-bs-target='#cartmodal'>Shopping Cart</button>
             </nav>
-            <div className='modal fade' id='cartmodal' tabIndex={-1}>
-                                <div className='modal-dialog'>
-                                    <div className='modal-content'>
-                                        <div className='modal-header'>
-                                            <h4 className='modal-title'>Shopping Cart</h4>
-                                            <button type='button' className='close' data-bs-dismiss='modal'>
-                                                <span>&times;</span>
-                                            </button>
-                                        </div>
-                                        <div className='modal-body'>
-                                            Item 1
-                                        </div>
-                                        <div className='modal-footer'>
-                                            <button type='button' className='btn btn-info' data-bs-dismiss="modal">Close Cart</button>                                        
-                                            <button type='button' className='btn btn-info'>Check Out</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <Cart />
         </div>
     )
 }
