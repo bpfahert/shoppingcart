@@ -1,14 +1,25 @@
 import React from 'react';
 import { useSelector, useDispatch, createDispatchHook } from 'react-redux';
-import { addToCart, removeFromCart } from './components/redux/store';
+import { addToCart, removeFromCart, addOneInCart, removeOneInCart } from './components/redux/cartSlice';
 
 export default function Cart(props) {
     const dispatch = useDispatch();
-    const { cart } = useSelector(state => state.store);
-    const { total } = useSelector(state => state.store);
+    const { cart } = useSelector(state => state.cartStore);
+    const { total } = useSelector(state => state.cartStore);
 
     const cartDisplay = cart.map((item) => {
-        return <li className='mb-2'>{item.name} Price: {item.price} <button type='button' className='btn btn-outline-secondary btn-sm'>-</button> Qty: {item.amount} <button type='button' className='btn btn-sm btn-outline-secondary'>+</button> <button type='button' onClick={() => dispatch(removeFromCart(item))} className='btn btn-sm btn-outline-danger'>Remove from Cart</button></li>
+        return (
+            <li style={{display: 'flex', justifyContent: 'space-evenly'}} className='mb-2'>
+                <span>{item.name}</span>
+                <span>Price: {item.price}</span>
+                <span>
+                    <button type='button' onClick={() => dispatch(removeOneInCart(item))} className='btn btn-outline-secondary btn-sm'>-</button> 
+                    Qty: {item.amount}
+                    <button type='button' className='btn btn-sm btn-outline-secondary' onClick={() => dispatch(addOneInCart(item))}>+</button> 
+                </span>
+                <button type='button' onClick={() => dispatch(removeFromCart(item))} className='btn btn-sm btn-outline-danger'>Remove from Cart</button>
+            </li>
+        )
     })
 
     return (

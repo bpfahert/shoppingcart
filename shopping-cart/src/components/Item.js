@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart } from './redux/store';
+import { addToCart } from './redux/cartSlice';
 
 export default function Item(props) {
     const dispatch = useDispatch();

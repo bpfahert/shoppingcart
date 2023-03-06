@@ -23,9 +23,9 @@ export default function Navbar(props) {
                                 Shop by Type
                             </a>
                             <div className='dropdown-menu'>
-                                <a className='dropdown-item' href='#'>Type 1</a>   
-                                <a className='dropdown-item' href='#'>Type 2</a>   
-                                <a className='dropdown-item' href='#'>Type 3</a>   
+                                <a className='dropdown-item' href='#'>Books</a>   
+                                <a className='dropdown-item' href='#'>Movies</a>   
+                                <a className='dropdown-item' href='#'>Board Games</a>   
                             </div> 
                         </li>
                     </ul>
