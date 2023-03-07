@@ -3,7 +3,7 @@ import Item from './Item';
 
 export default function ShopSection(props) {
     const sectionItems = props.items.map((item) => {
-        return <li> <Item name={item.name} price={item.price} id={item.id} key={item.id}/> </li>
+        return <li> <Item name={item.name} price={item.price} id={item.id} key={item.id} img={item.img}/> </li>
     })
 
     return (

@@ -30,7 +30,7 @@ export const cartSlice = createSlice({
         //TODO: Update to make it simpler?
         addOneInCart: (state, action) => {
             state.cart = state.cart.map(item => { 
-                return item.id === action.payload.id ? {name: item.name, price: item.price, id: item.id, amount: (item.amount + 1)} : item;
+                return item.id === action.payload.id ? {name: item.name, price: item.price, id: item.id, amount: (item.amount + 1), img: item.img} : item;
             });
             state.total += action.payload.price;
         },

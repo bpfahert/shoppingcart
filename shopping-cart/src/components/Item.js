@@ -11,6 +11,7 @@ export default function Item(props) {
         price: props.price,
         id: props.id,
         amount: Number(quantity),
+        img: props.img,
     }
 
     const handleChange = (event) => {
@@ -19,9 +20,9 @@ export default function Item(props) {
 
     return (
         <div className='card mb-3' style={{width: '14rem'}}>
-            <img className='card-img-top' src='#' alt='item' />
+            <img className='card-img-top img-thumbnail'  src={props.img} alt='item' />
             <div className='card-body text-center'>
-                <h4 className='text-center'>{props.name}</h4>
+                <h5 className='text-center'>{props.name}</h5>
                 <p className='card-text'>${props.price}</p>
                 <label htmlFor='quantitybtn'>Qty:</label>
                 <select id='quantitybtn' value={quantity} onChange={handleChange} className='w-25 mb-3 ml-2 mt-3'>
